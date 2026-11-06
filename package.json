@@ -1,6 +1,6 @@
 {
   "name": "vettrack",
-  "version": "1.0.00",
+  "version": "1.0.01",
   "description": "Plataforma de Sanidad Ganadera, Carencia Farmacológica, Manga Offline y Actas SENASA",
   "type": "module",
   "scripts": {

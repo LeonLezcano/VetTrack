@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐄</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,8 +17,8 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            display: ['Space Grotesk', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace']
           },
           colors: {
@@ -30,20 +30,29 @@
               700: '#047857',
               900: '#064e3b'
             },
-            obsidian: '#0f0f11',
-            ivory: '#faf9f5'
+            obsidian: '#0d120e',
+            ivory: '#f4f5f4'
           }
         }
       }
     };
   </script>
   <style>
+    :root {
+      --bg-dark: #0d120e;
+      --card-dark: #161c17;
+      --card-border: #222c24;
+    }
     body {
-      background-color: #0f0f11;
-      color: #faf9f5;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0d120e;
+      color: #f4f5f4;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.875rem;
       -webkit-tap-highlight-color: transparent;
     }
+    h1 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.025em; }
+    h2 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
+    h3 { font-size: 1.1rem; font-weight: 600; }
     .touch-target {
       min-height: 48px;
       min-width: 48px;
@@ -59,22 +68,22 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-bio-500 selection:text-black">
+<body class="min-h-screen flex flex-col justify-between selection:bg-bio-500 selection:text-black bg-[#0d120e]">
 
   <!-- Cabecera de Manga / Conducción -->
-  <header class="bg-obsidian border-b border-zinc-800 sticky top-0 z-50 px-4 py-3 no-print">
+  <header class="bg-[#0f1510] border-b border-[#222c24] sticky top-0 z-50 px-4 py-3 no-print">
     <div class="max-w-4xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="text-2xl" aria-hidden="true">🐄</span>
         <div>
           <h1 class="text-lg font-bold font-display tracking-tight text-white flex items-center gap-2">
-            VetTrack <span class="text-xs font-mono font-normal px-2 py-0.5 rounded bg-bio-900/60 text-bio-300 border border-bio-700">v1.0.00</span>
+            VetTrack <span class="text-xs font-mono font-normal px-2 py-0.5 rounded bg-bio-900/60 text-bio-300 border border-bio-700">v1.0.01</span>
           </h1>
-          <p class="text-xs text-zinc-400">SENASA • Sanidad Ganadera & Tambo</p>
+          <h2 class="text-xs text-zinc-400 font-normal">SENASA • Sanidad Ganadera & Tambo</h2>
         </div>
       </div>
       <div class="flex items-center gap-2">
-        <button id="wakelock-btn" data-action="toggle-wakelock" class="touch-target px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-800 text-zinc-300 border border-zinc-700 flex items-center gap-1.5 active:bg-zinc-700" title="Mantener pantalla activa en parabrisas">
+        <button id="wakelock-btn" data-action="toggle-wakelock" class="touch-target px-3 py-1.5 rounded-xl text-xs font-mono bg-[#161c17] text-zinc-300 border border-[#222c24] flex items-center gap-1.5 active:bg-zinc-800 transition" title="Mantener pantalla activa en parabrisas">
           <span class="inline-block w-2 h-2 rounded-full bg-zinc-500" id="wakelock-dot"></span>
           <span>WakeLock</span>
         </button>
@@ -83,16 +92,16 @@
 
     <!-- Navegación por Pestañas (Touch 48px) -->
     <nav class="max-w-4xl mx-auto mt-3 grid grid-cols-4 gap-1.5 text-xs font-medium font-display">
-      <button data-action="switch-tab" data-tab="carencia" class="tab-btn touch-target py-2 px-1 text-center rounded-lg bg-bio-600 text-white font-semibold transition-all">
+      <button data-action="switch-tab" data-tab="carencia" class="tab-btn touch-target py-2 px-1 text-center rounded-xl bg-bio-600 text-white font-semibold shadow-lg shadow-bio-900/30 transition-all">
         Carencia
       </button>
-      <button data-action="switch-tab" data-tab="tacto" class="tab-btn touch-target py-2 px-1 text-center rounded-lg bg-zinc-900 text-zinc-400 border border-zinc-800 transition-all">
+      <button data-action="switch-tab" data-tab="tacto" class="tab-btn touch-target py-2 px-1 text-center rounded-xl bg-[#161c17] text-zinc-400 border border-[#222c24] hover:text-white transition-all">
         Tacto/Manga
       </button>
-      <button data-action="switch-tab" data-tab="senasa" class="tab-btn touch-target py-2 px-1 text-center rounded-lg bg-zinc-900 text-zinc-400 border border-zinc-800 transition-all">
+      <button data-action="switch-tab" data-tab="senasa" class="tab-btn touch-target py-2 px-1 text-center rounded-xl bg-[#161c17] text-zinc-400 border border-[#222c24] hover:text-white transition-all">
         Acta SENASA
       </button>
-      <button data-action="switch-tab" data-tab="cuenta" class="tab-btn touch-target py-2 px-1 text-center rounded-lg bg-zinc-900 text-zinc-400 border border-zinc-800 transition-all">
+      <button data-action="switch-tab" data-tab="cuenta" class="tab-btn touch-target py-2 px-1 text-center rounded-xl bg-[#161c17] text-zinc-400 border border-[#222c24] hover:text-white transition-all">
         Cta. Cte.
       </button>
     </nav>
@@ -103,14 +112,14 @@
 
     <!-- SECCIÓN 1: CARENCIA FARMACOLÓGICA -->
     <section id="section-carencia" class="tab-section space-y-4">
-      <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-4 shadow-xl">
+      <div class="bg-[#161c17] border border-[#222c24] rounded-2xl p-5 shadow-xl">
         <h2 class="text-sm font-semibold font-display text-bio-400 uppercase tracking-wider mb-3">
           💉 Calculadora de Período de Carencia (Retiro en Carne y Leche)
         </h2>
         <form id="withholding-form" class="space-y-3">
           <div>
             <label class="block text-xs text-zinc-400 mb-1" for="drug-select">Principio Activo Veterinario</label>
-            <select id="drug-select" class="w-full touch-target px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm text-white font-sans focus:outline-none focus:border-bio-500">
+            <select id="drug-select" class="w-full touch-target px-3 py-2 bg-[#0d120e] border border-[#222c24] rounded-xl text-sm text-white font-sans focus:outline-none focus:border-bio-500">
               <option value="ivermectina-1">Ivermectina 1% (Carne: 35 días | Leche: 28 días)</option>
               <option value="ivermectina-3.15">Ivermectina 3.15% L.A. (Carne: 122 días | Leche: Prohibido)</option>
               <option value="doramectina-1">Doramectina 1% (Carne: 42 días | Leche: 60 días)</option>
@@ -125,36 +134,36 @@
           <div class="grid grid-cols-2 gap-3">
             <div>
               <label class="block text-xs text-zinc-400 mb-1" for="caravana-input">Caravana Animal</label>
-              <input id="caravana-input" type="text" placeholder="032 0000 12345678" class="w-full touch-target px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm text-white font-mono focus:outline-none focus:border-bio-500">
+              <input id="caravana-input" type="text" placeholder="032 0000 12345678" class="w-full touch-target px-3 py-2 bg-[#0d120e] border border-[#222c24] rounded-xl text-sm text-white font-mono focus:outline-none focus:border-bio-500">
             </div>
             <div>
               <label class="block text-xs text-zinc-400 mb-1" for="app-date-input">Fecha Aplicación</label>
-              <input id="app-date-input" type="date" class="w-full touch-target px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm text-white focus:outline-none focus:border-bio-500">
+              <input id="app-date-input" type="date" class="w-full touch-target px-3 py-2 bg-[#0d120e] border border-[#222c24] rounded-xl text-sm text-white focus:outline-none focus:border-bio-500">
             </div>
           </div>
-          <button type="button" data-action="calc-withholding" class="w-full touch-target py-3 bg-bio-600 hover:bg-bio-500 text-white font-semibold font-display rounded-lg active:scale-[0.99] transition-all">
+          <button type="button" data-action="calc-withholding" class="w-full touch-target py-3 bg-bio-600 hover:bg-bio-500 text-white font-semibold font-display rounded-xl active:scale-[0.99] transition-all">
             Calcular Liberación Sanitaria
           </button>
         </form>
       </div>
 
-      <!-- Semáforo de Liberación -->
-      <div id="withholding-result" class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 space-y-3">
+      <!-- Semáforo de Liberación (Aplanado sin tarjetas anidadas) -->
+      <div id="withholding-result" class="bg-[#161c17] border border-[#222c24] rounded-2xl p-5 space-y-3">
         <div class="flex items-center justify-between">
           <span class="text-xs font-display text-zinc-400">ESTADO SANITARIO DE LA TROPA</span>
-          <span id="withholding-badge" class="px-2.5 py-1 rounded text-xs font-mono font-bold bg-bio-900/60 text-bio-300 border border-bio-600">APTO DESPACHO</span>
+          <span id="withholding-badge" class="px-2.5 py-1 rounded-xl text-xs font-mono font-bold bg-bio-900/60 text-bio-300 border border-bio-600">APTO DESPACHO</span>
         </div>
-        <div class="grid grid-cols-2 gap-3 pt-2 border-t border-zinc-800">
-          <div class="p-3 bg-zinc-800/60 rounded-lg">
-            <span class="block text-[11px] text-zinc-400 font-medium">RETIRO EN CARNE</span>
-            <span id="meat-release-text" class="text-sm font-semibold text-white font-mono">-</span>
+        <div class="grid grid-cols-2 gap-3 pt-3 border-t border-[#222c24]">
+          <div>
+            <span class="block text-[11px] text-zinc-400 font-medium uppercase">Retiro en Carne</span>
+            <span id="meat-release-text" class="text-sm font-semibold text-white font-mono mt-0.5 block">-</span>
           </div>
-          <div class="p-3 bg-zinc-800/60 rounded-lg">
-            <span class="block text-[11px] text-zinc-400 font-medium">RETIRO EN LECHE</span>
-            <span id="milk-release-text" class="text-sm font-semibold text-white font-mono">-</span>
+          <div>
+            <span class="block text-[11px] text-zinc-400 font-medium uppercase">Retiro en Leche</span>
+            <span id="milk-release-text" class="text-sm font-semibold text-white font-mono mt-0.5 block">-</span>
           </div>
         </div>
-        <button id="send-wa-alert-btn" data-action="share-wa-alert" class="w-full touch-target py-2.5 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-lg text-xs font-semibold text-emerald-400 flex items-center justify-center gap-2">
+        <button id="send-wa-alert-btn" data-action="share-wa-alert" class="w-full touch-target py-2.5 bg-[#0d120e] hover:bg-zinc-800 border border-[#222c24] rounded-xl text-xs font-semibold text-emerald-400 flex items-center justify-center gap-2 transition">
           <span>💬 Compartir Alerta de Retiro por WhatsApp</span>
         </button>
       </div>
@@ -162,7 +171,7 @@
 
     <!-- SECCIÓN 2: TACTO / MANGA IATF -->
     <section id="section-tacto" class="tab-section hidden space-y-4">
-      <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-4">
+      <div class="bg-[#161c17] border border-[#222c24] rounded-2xl p-5">
         <h2 class="text-sm font-semibold font-display text-bio-400 uppercase tracking-wider mb-2">
           🖐️ Registro Rápido en Manga (Tacto / Ecografía)
         </h2>
@@ -170,43 +179,43 @@
 
         <!-- Botonera de Manga de Alto Contraste -->
         <div class="grid grid-cols-2 gap-2 mb-3">
-          <button data-action="record-tacto" data-diagnosis="PREÑADA_CABEZA" class="touch-target p-3 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-600 rounded-lg text-left active:scale-[0.98]">
+          <button data-action="record-tacto" data-diagnosis="PREÑADA_CABEZA" class="touch-target p-3 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-600 rounded-xl text-left active:scale-[0.98] transition">
             <span class="block text-sm font-bold text-emerald-300 font-display">PREÑADA CABEZA</span>
             <span class="text-[11px] text-emerald-400/80">30 - 60 días (1er ciclo)</span>
           </button>
-          <button data-action="record-tacto" data-diagnosis="PREÑADA_CUERPO" class="touch-target p-3 bg-teal-950/80 hover:bg-teal-900 border border-teal-600 rounded-lg text-left active:scale-[0.98]">
+          <button data-action="record-tacto" data-diagnosis="PREÑADA_CUERPO" class="touch-target p-3 bg-teal-950/80 hover:bg-teal-900 border border-teal-600 rounded-xl text-left active:scale-[0.98] transition">
             <span class="block text-sm font-bold text-teal-300 font-display">PREÑADA CUERPO</span>
             <span class="text-[11px] text-teal-400/80">61 - 90 días (2do ciclo)</span>
           </button>
-          <button data-action="record-tacto" data-diagnosis="PREÑADA_COLA" class="touch-target p-3 bg-amber-950/80 hover:bg-amber-900 border border-amber-600 rounded-lg text-left active:scale-[0.98]">
+          <button data-action="record-tacto" data-diagnosis="PREÑADA_COLA" class="touch-target p-3 bg-amber-950/80 hover:bg-amber-900 border border-amber-600 rounded-xl text-left active:scale-[0.98] transition">
             <span class="block text-sm font-bold text-amber-300 font-display">PREÑADA COLA</span>
             <span class="text-[11px] text-amber-400/80">91 - 120+ días</span>
           </button>
-          <button data-action="record-tacto" data-diagnosis="VACIA" class="touch-target p-3 bg-rose-950/80 hover:bg-rose-900 border border-rose-600 rounded-lg text-left active:scale-[0.98]">
+          <button data-action="record-tacto" data-diagnosis="VACIA" class="touch-target p-3 bg-rose-950/80 hover:bg-rose-900 border border-rose-600 rounded-xl text-left active:scale-[0.98] transition">
             <span class="block text-sm font-bold text-rose-300 font-display">VACÍA</span>
             <span class="text-[11px] text-rose-400/80">Apta repaso / servicio</span>
           </button>
         </div>
-        <button data-action="record-tacto" data-diagnosis="RECHAZO_CUT" class="w-full touch-target p-2.5 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-lg text-center text-xs font-semibold text-zinc-300">
+        <button data-action="record-tacto" data-diagnosis="RECHAZO_CUT" class="w-full touch-target p-2.5 bg-[#0d120e] hover:bg-zinc-800 border border-[#222c24] rounded-xl text-center text-xs font-semibold text-zinc-300 transition">
           ⚠️ Marcar como Rechazo / CUT (Cría Último Ternero)
         </button>
       </div>
 
-      <!-- Resumen Reproductivo en Tiempo Real -->
-      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+      <!-- Resumen Reproductivo en Tiempo Real (Aplanado sin tarjetas anidadas) -->
+      <div class="bg-[#161c17] border border-[#222c24] rounded-2xl p-5">
         <h3 class="text-xs font-display text-zinc-400 uppercase tracking-wider mb-3">Métricas de Fertilidad del Rodeo</h3>
-        <div class="grid grid-cols-3 gap-2 text-center font-mono">
-          <div class="p-2 bg-zinc-800/80 rounded">
-            <span class="block text-[11px] text-zinc-400">EVALUADAS</span>
-            <span id="tacto-total" class="text-lg font-bold text-white">0</span>
+        <div class="grid grid-cols-3 gap-2 text-center font-mono pt-2 border-t border-[#222c24]">
+          <div>
+            <span class="block text-[11px] text-zinc-400 uppercase">Evaluadas</span>
+            <span id="tacto-total" class="text-lg font-bold text-white mt-1 block">0</span>
           </div>
-          <div class="p-2 bg-bio-950/80 border border-bio-700 rounded">
-            <span class="block text-[11px] text-bio-300">PREÑEZ TOTAL</span>
-            <span id="tacto-rate" class="text-lg font-bold text-bio-400">0%</span>
+          <div>
+            <span class="block text-[11px] text-bio-300 uppercase">Preñez Total</span>
+            <span id="tacto-rate" class="text-lg font-bold text-bio-400 mt-1 block">0%</span>
           </div>
-          <div class="p-2 bg-zinc-800/80 rounded">
-            <span class="block text-[11px] text-zinc-400">% CABEZA</span>
-            <span id="tacto-head-rate" class="text-lg font-bold text-emerald-400">0%</span>
+          <div>
+            <span class="block text-[11px] text-zinc-400 uppercase">% Cabeza</span>
+            <span id="tacto-head-rate" class="text-lg font-bold text-emerald-400 mt-1 block">0%</span>
           </div>
         </div>
       </div>
@@ -214,7 +223,7 @@
 
     <!-- SECCIÓN 3: ACTA OFICIAL SENASA -->
     <section id="section-senasa" class="tab-section hidden space-y-4">
-      <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-4">
+      <div class="bg-[#161c17] border border-[#222c24] rounded-2xl p-5">
         <h2 class="text-sm font-semibold font-display text-bio-400 uppercase tracking-wider mb-3">
           📜 Emisión de Acta Oficial SENASA con Cadena de Frío
         </h2>
@@ -222,16 +231,16 @@
           <div class="grid grid-cols-2 gap-3">
             <div>
               <label class="block text-xs text-zinc-400 mb-1" for="renspa-input">RENSPA Oficial</label>
-              <input id="renspa-input" type="text" value="04.012.0.00345/00" class="w-full touch-target px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm text-white font-mono focus:outline-none focus:border-bio-500">
+              <input id="renspa-input" type="text" value="04.012.0.00345/00" class="w-full touch-target px-3 py-2 bg-[#0d120e] border border-[#222c24] rounded-xl text-sm text-white font-mono focus:outline-none focus:border-bio-500">
             </div>
             <div>
               <label class="block text-xs text-zinc-400 mb-1" for="temp-conservator">Temp. Conservadora (°C)</label>
-              <input id="temp-conservator" type="number" step="0.1" value="4.5" class="w-full touch-target px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm text-white font-mono focus:outline-none focus:border-bio-500">
+              <input id="temp-conservator" type="number" step="0.1" value="4.5" class="w-full touch-target px-3 py-2 bg-[#0d120e] border border-[#222c24] rounded-xl text-sm text-white font-mono focus:outline-none focus:border-bio-500">
             </div>
           </div>
           <div>
             <label class="block text-xs text-zinc-400 mb-1" for="campaign-select">Campaña Sanitaria</label>
-            <select id="campaign-select" class="w-full touch-target px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-sm text-white focus:outline-none focus:border-bio-500">
+            <select id="campaign-select" class="w-full touch-target px-3 py-2 bg-[#0d120e] border border-[#222c24] rounded-xl text-sm text-white focus:outline-none focus:border-bio-500">
               <option value="AFTOSA_TOTAL">Fiebre Aftosa (Rodeo Total)</option>
               <option value="AFTOSA_MENORES">Fiebre Aftosa (Menores / Otoño)</option>
               <option value="BRUCELOSIS_CEPA19">Brucelosis Cepa 19 (Terneras 3-8 meses)</option>
@@ -241,30 +250,30 @@
           <div class="grid grid-cols-3 gap-2 text-xs font-mono">
             <div>
               <label class="text-zinc-400">Vacas</label>
-              <input id="cat-vacas" type="number" value="150" class="w-full p-2 bg-zinc-800 border border-zinc-700 rounded">
+              <input id="cat-vacas" type="number" value="150" class="w-full p-2 bg-[#0d120e] border border-[#222c24] rounded-xl text-white">
             </div>
             <div>
               <label class="text-zinc-400">Vaquillonas</label>
-              <input id="cat-vaquillonas" type="number" value="40" class="w-full p-2 bg-zinc-800 border border-zinc-700 rounded">
+              <input id="cat-vaquillonas" type="number" value="40" class="w-full p-2 bg-[#0d120e] border border-[#222c24] rounded-xl text-white">
             </div>
             <div>
               <label class="text-zinc-400">Terneros/as</label>
-              <input id="cat-terneros" type="number" value="95" class="w-full p-2 bg-zinc-800 border border-zinc-700 rounded">
+              <input id="cat-terneros" type="number" value="95" class="w-full p-2 bg-[#0d120e] border border-[#222c24] rounded-xl text-white">
             </div>
           </div>
-          <button type="button" data-action="issue-act" class="w-full touch-target py-3 bg-bio-600 hover:bg-bio-500 text-white font-semibold font-display rounded-lg active:scale-[0.99] transition-all">
+          <button type="button" data-action="issue-act" class="w-full touch-target py-3 bg-bio-600 hover:bg-bio-500 text-white font-semibold font-display rounded-xl active:scale-[0.99] transition-all">
             Emitir y Sellar Acta Sanitaria (SHA-256)
           </button>
         </form>
       </div>
 
-      <div id="act-result" class="hidden bg-zinc-900 border border-zinc-800 rounded-xl p-4 space-y-2">
+      <div id="act-result" class="hidden bg-[#161c17] border border-[#222c24] rounded-2xl p-5 space-y-2">
         <div class="flex items-center justify-between">
           <span class="text-xs font-display text-bio-400">ACTA EMITIDA CON VALIDEZ OFICIAL</span>
           <span id="act-number" class="text-xs font-mono font-bold text-white">ACT-001</span>
         </div>
         <p class="text-xs text-zinc-300 font-mono break-all" id="act-hash">SHA: -</p>
-        <button id="share-act-btn" data-action="share-act-wa" class="w-full touch-target py-2.5 bg-emerald-900 hover:bg-emerald-800 text-emerald-200 border border-emerald-600 rounded-lg text-xs font-semibold">
+        <button id="share-act-btn" data-action="share-act-wa" class="w-full touch-target py-2.5 bg-emerald-900 hover:bg-emerald-800 text-emerald-200 border border-emerald-600 rounded-xl text-xs font-semibold transition">
           📲 Enviar Acta por WhatsApp al Productor
         </button>
       </div>
@@ -272,26 +281,26 @@
 
     <!-- SECCIÓN 4: CUENTA CORRIENTE COMMODITIES -->
     <section id="section-cuenta" class="tab-section hidden space-y-4">
-      <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-4">
+      <div class="bg-[#161c17] border border-[#222c24] rounded-2xl p-5">
         <h2 class="text-sm font-semibold font-display text-bio-400 uppercase tracking-wider mb-3">
           📊 Cuentas Corrientes Indexadas (Kg Novillo MAG / Leche SIGLeA)
         </h2>
-        <div class="grid grid-cols-2 gap-3 mb-3">
-          <div class="p-3 bg-zinc-800/80 rounded-lg">
-            <span class="block text-[11px] text-zinc-400">PRECIO NOVILLO MAG</span>
-            <span class="text-sm font-bold text-white font-mono">$ 2.950 / kg</span>
+        <div class="grid grid-cols-2 gap-4 mb-4 pt-2 border-t border-[#222c24]">
+          <div>
+            <span class="block text-[11px] text-zinc-400 uppercase">Precio Novillo MAG</span>
+            <span class="text-base font-bold text-white font-mono mt-0.5 block">$ 2.950 / kg</span>
           </div>
-          <div class="p-3 bg-zinc-800/80 rounded-lg">
-            <span class="block text-[11px] text-zinc-400">LECHE SIGLeA</span>
-            <span class="text-sm font-bold text-white font-mono">$ 465 / litro</span>
+          <div>
+            <span class="block text-[11px] text-zinc-400 uppercase">Leche SIGLeA</span>
+            <span class="text-base font-bold text-white font-mono mt-0.5 block">$ 465 / litro</span>
           </div>
         </div>
-        <div class="p-3 bg-zinc-800 border border-zinc-700 rounded-lg space-y-1">
+        <div class="pt-3 border-t border-[#222c24] space-y-1">
           <div class="flex justify-between text-xs">
             <span class="text-zinc-400">Estancia La Oriental:</span>
             <span class="font-bold text-emerald-400 font-mono">150.0 kg Novillo</span>
           </div>
-          <div class="flex justify-between text-xs border-t border-zinc-700 pt-1">
+          <div class="flex justify-between text-xs pt-1">
             <span class="text-zinc-400">Equivalente en ARS:</span>
             <span class="font-bold text-white font-mono">$ 442.500,00</span>
           </div>
@@ -301,8 +310,8 @@
   </main>
 
   <!-- Pie de Página -->
-  <footer class="bg-obsidian border-t border-zinc-800/80 py-3 px-4 text-center text-xs text-zinc-500 font-mono no-print">
-    VetTrack • Sanidad Ganadera Offline-First • Certificación SENASA Argentina
+  <footer class="bg-[#0f1510] border-t border-[#222c24] py-3 px-4 text-center text-xs text-zinc-500 font-mono no-print">
+    VetTrack v1.0.01 • Sanidad Ganadera Offline-First • Certificación SENASA Argentina
   </footer>
 
   <!-- Script Modular Autónomo -->
@@ -336,9 +345,9 @@
       if (action === 'switch-tab') {
         const tab = target.getAttribute('data-tab');
         document.querySelectorAll('.tab-btn').forEach((btn) => {
-          btn.className = 'tab-btn touch-target py-2 px-1 text-center rounded-lg bg-zinc-900 text-zinc-400 border border-zinc-800 transition-all';
+          btn.className = 'tab-btn touch-target py-2 px-1 text-center rounded-xl bg-[#161c17] text-zinc-400 border border-[#222c24] hover:text-white transition-all';
         });
-        target.className = 'tab-btn touch-target py-2 px-1 text-center rounded-lg bg-bio-600 text-white font-semibold transition-all';
+        target.className = 'tab-btn touch-target py-2 px-1 text-center rounded-xl bg-bio-600 text-white font-semibold shadow-lg shadow-bio-900/30 transition-all';
 
         document.querySelectorAll('.tab-section').forEach((sec) => sec.classList.add('hidden'));
         const activeSec = document.getElementById(`section-${tab}`);
@@ -360,10 +369,10 @@
 
         if (schedule.isMeatWithheld) {
           badge.textContent = `BLOQUEADO (${schedule.meatRemainingDays} días rest.)`;
-          badge.className = 'px-2.5 py-1 rounded text-xs font-mono font-bold bg-rose-950/90 text-rose-300 border border-rose-600';
+          badge.className = 'px-2.5 py-1 rounded-xl text-xs font-mono font-bold bg-rose-950/90 text-rose-300 border border-rose-600';
         } else {
           badge.textContent = 'APTO FAENA';
-          badge.className = 'px-2.5 py-1 rounded text-xs font-mono font-bold bg-bio-900/60 text-bio-300 border border-bio-600';
+          badge.className = 'px-2.5 py-1 rounded-xl text-xs font-mono font-bold bg-bio-900/60 text-bio-300 border border-bio-600';
         }
 
         meatText.textContent = `${formatDate(schedule.meatReleaseDateIso)} (${schedule.withholdingMeatDays} d)`;
