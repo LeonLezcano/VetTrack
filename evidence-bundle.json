@@ -1,0 +1,156 @@
+{
+  "standardBundleVersion": "1.0.0",
+  "generatedAtIso": "2026-11-06T03:12:27.926Z",
+  "targetDirectory": "/Users/leolezcano/Documents/Programacion/VetTrack",
+  "git": {
+    "branch": "UNKNOWN",
+    "commit": "UNKNOWN"
+  },
+  "configHashes": {
+    "package.json": "9bdcfc29494d2b97da962aa3059738642366a119fab588c1b6364f26a6bca9a8",
+    "firebase.json": "9f9f69b94d82dda9d8fb0a33ad9a63731b0598cf890477725a5da4ba98a52897",
+    ".gitignore": "f2cc37bb3f032bdb840b4634f55964cb3d4a7717d48e41a0c2670a8dfce44b5f",
+    "COMPLIANCE.md": "bd637249e1ad9fe67b99fc63508bfa7517be780eadfcab7c6f411b1accd07763",
+    "PRIVACY_POLICY.md": "4a68b57d647ae1209eeefe72eb05933e3d466cb61098fdef35eae08982c7562d",
+    "STATEMENT_OF_APPLICABILITY.md": "22617ada0002c1635cd0ea72aa1adc5b3bf07448ed829d3ca925b8f4494d8741"
+  },
+  "complianceScorecards": {
+    "soc2": {
+      "score": 100,
+      "passed": true,
+      "criteria": {
+        "Security (Common Criteria)": {
+          "passed": true,
+          "score": 100,
+          "checks": [
+            {
+              "name": "CC6.1: Secrets Isolation (.gitignore)",
+              "passed": true,
+              "severity": "P0",
+              "details": ".env properly protected"
+            },
+            {
+              "name": "CC6.6: Perimeter Defense & Strict CSP",
+              "passed": true,
+              "severity": "P1",
+              "details": "Content-Security-Policy configured"
+            },
+            {
+              "name": "CC6.7: Clickjacking Protection (X-Frame-Options: DENY)",
+              "passed": true,
+              "severity": "P1",
+              "details": "X-Frame-Options: DENY enforced"
+            },
+            {
+              "name": "CC6.8: Zero Hardcoded Production Secrets",
+              "passed": true,
+              "severity": "P0",
+              "details": "No unmasked private credentials found"
+            }
+          ]
+        },
+        "Availability": {
+          "passed": true,
+          "score": 100,
+          "checks": [
+            {
+              "name": "A1.2: Environmental Resiliency & Test Automation",
+              "passed": true,
+              "severity": "P1",
+              "details": "Automated test suite configured"
+            },
+            {
+              "name": "A1.3: Offline-First Continuity Capability",
+              "passed": true,
+              "severity": "P2",
+              "details": "Offline caching or modular engine architecture present"
+            }
+          ]
+        },
+        "Processing Integrity": {
+          "passed": true,
+          "score": 100,
+          "checks": [
+            {
+              "name": "PI1.1: Input Validation & DOM Sanitization",
+              "passed": true,
+              "severity": "P0",
+              "details": "Deterministic HTML/DOM sanitization active"
+            },
+            {
+              "name": "PI1.2: Atomic Financial Mutation Integrity",
+              "passed": true,
+              "severity": "P1",
+              "details": "Server-side validated financial mutation invariant respected"
+            }
+          ]
+        },
+        "Confidentiality": {
+          "passed": true,
+          "score": 100,
+          "checks": [
+            {
+              "name": "C1.1: Encryption in Transit (HTTPS / HSTS)",
+              "passed": true,
+              "severity": "P0",
+              "details": "Enforced via modern secure hosting transport"
+            },
+            {
+              "name": "C1.2: Tenant Data Isolation",
+              "passed": true,
+              "severity": "P1",
+              "details": "Multi-tenant boundaries and RBAC policy verified"
+            }
+          ]
+        },
+        "Privacy": {
+          "passed": true,
+          "score": 100,
+          "checks": [
+            {
+              "name": "P1.1: Notice of PII Processing & Retention",
+              "passed": true,
+              "severity": "P2",
+              "details": "Privacy policy or PII scrubber engine detected"
+            }
+          ]
+        }
+      }
+    },
+    "iso27001": {
+      "score": 100,
+      "passed": true,
+      "controls": [
+        {
+          "id": "A.8.25",
+          "name": "Secure development lifecycle",
+          "implemented": true,
+          "status": "IMPLEMENTED",
+          "evidence": "Automated test harness discovered"
+        },
+        {
+          "id": "A.8.11",
+          "name": "Data masking & PII Protection",
+          "implemented": true,
+          "status": "IMPLEMENTED",
+          "evidence": "PII masking or cryptographic engine active"
+        },
+        {
+          "id": "A.8.9",
+          "name": "Configuration management (Git)",
+          "implemented": true,
+          "status": "IMPLEMENTED",
+          "evidence": "Git repository active"
+        },
+        {
+          "id": "A.8.12",
+          "name": "Data leakage prevention (DLP)",
+          "implemented": true,
+          "status": "IMPLEMENTED",
+          "evidence": ".gitignore blocks .env secrets"
+        }
+      ]
+    }
+  },
+  "bundleSignatureSha256": "cb061f8700e0158b7ae1bb20d762825d9b77246adc3baa7eb06cd3b0d38178ce"
+}

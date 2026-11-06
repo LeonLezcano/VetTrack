@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Colección de Animales y Lotes
+    match /animals/{animalId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.createdBy == request.auth.uid;
+      allow update: if isAuthenticated() && resource.data.createdBy == request.auth.uid && request.resource.data.createdBy == resource.data.createdBy;
+      allow delete: if false; // Trazabilidad inmutable de caravanas
+    }
+
+    // Actas Sanitarias SENASA (Inmutables una vez emitidas)
+    match /senasa_acts/{actId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.createdBy == request.auth.uid;
+      allow update, delete: if false; // Inmutabilidad estricta de actas sanitarias
+    }
+
+    // Registros de Carencia y Medicación
+    match /withholding_records/{recordId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.createdBy == request.auth.uid;
+      allow update: if isAuthenticated() && resource.data.createdBy == request.auth.uid && request.resource.data.createdBy == resource.data.createdBy;
+      allow delete: if false;
+    }
+
+    // Cuentas Corrientes Ganaderas
+    match /commodity_ledgers/{ledgerId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.createdBy == request.auth.uid;
+      allow update: if isAuthenticated() && resource.data.createdBy == request.auth.uid && request.resource.data.createdBy == resource.data.createdBy;
+      allow delete: if false;
+    }
+
+    // Regla de cierre por defecto
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

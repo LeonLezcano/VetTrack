@@ -1,0 +1,77 @@
+{
+  "evidence-bundle.json": {
+    "mtime": 1793934747.9284558,
+    "ast_hash": "75b7647047e0624c25361ef139548392",
+    "semantic_hash": "75b7647047e0624c25361ef139548392"
+  },
+  "firebase.json": {
+    "mtime": 1793934333.8592324,
+    "ast_hash": "97e17a05ed5a2e7ffb5d0257dc7e3eec",
+    "semantic_hash": "97e17a05ed5a2e7ffb5d0257dc7e3eec"
+  },
+  "package.json": {
+    "mtime": 1793934311.0039325,
+    "ast_hash": "595a1fa66f337416c9465fc4d5c19414",
+    "semantic_hash": "595a1fa66f337416c9465fc4d5c19414"
+  },
+  "src/core/chuteReproductiveTriageEngine.js": {
+    "mtime": 1793934420.278848,
+    "ast_hash": "adf4555ad2b3c117ce75d26a365b6a35",
+    "semantic_hash": "adf4555ad2b3c117ce75d26a365b6a35"
+  },
+  "src/core/senasaVaccinationLedgerEngine.js": {
+    "mtime": 1793934445.0689425,
+    "ast_hash": "48542aeb756be38a2dbb1ac8d4ff0f51",
+    "semantic_hash": "48542aeb756be38a2dbb1ac8d4ff0f51"
+  },
+  "src/core/withholdingPeriodGuardEngine.js": {
+    "mtime": 1793934397.7496622,
+    "ast_hash": "739efe03500f6a5d0bcadf0f3c26a814",
+    "semantic_hash": "739efe03500f6a5d0bcadf0f3c26a814"
+  },
+  "src/services/livestockCommodityLedgerService.js": {
+    "mtime": 1793934461.1993017,
+    "ast_hash": "81de80f3dc8e5d1fb208ae68e3516c4f",
+    "semantic_hash": "81de80f3dc8e5d1fb208ae68e3516c4f"
+  },
+  "src/services/vetTrackCache.service.js": {
+    "mtime": 1793934473.9995272,
+    "ast_hash": "1faa06b191eade505ff060f4bcfcb83c",
+    "semantic_hash": "1faa06b191eade505ff060f4bcfcb83c"
+  },
+  "src/services/whatsAppVetNotifier.service.js": {
+    "mtime": 1793934486.136592,
+    "ast_hash": "fb67a03ee2e52d0c91acc23ff7600025",
+    "semantic_hash": "fb67a03ee2e52d0c91acc23ff7600025"
+  },
+  "src/utils/cryptoSeal.js": {
+    "mtime": 1793934816.0048623,
+    "ast_hash": "599b7661138b559499ba0a7601332e53",
+    "semantic_hash": "599b7661138b559499ba0a7601332e53"
+  },
+  "src/utils/formatters.js": {
+    "mtime": 1793934375.8772724,
+    "ast_hash": "fb7f5791c028ab14c2a7b23aa3d9456d",
+    "semantic_hash": "fb7f5791c028ab14c2a7b23aa3d9456d"
+  },
+  "src/utils/sanitizer.js": {
+    "mtime": 1793934356.1138477,
+    "ast_hash": "691ff38d3f10b557052994392415e240",
+    "semantic_hash": "691ff38d3f10b557052994392415e240"
+  },
+  "sw.js": {
+    "mtime": 1793934685.3517158,
+    "ast_hash": "035230e43de59c213fe63fa2ca7fe56e",
+    "semantic_hash": "035230e43de59c213fe63fa2ca7fe56e"
+  },
+  "tests/run_tests.js": {
+    "mtime": 1793934540.01218,
+    "ast_hash": "142b3c7d10838a358d99767d9362b0e2",
+    "semantic_hash": "142b3c7d10838a358d99767d9362b0e2"
+  },
+  "version.json": {
+    "mtime": 1793934318.0196865,
+    "ast_hash": "c04dc3c04e57107c9b2647155989de35",
+    "semantic_hash": "c04dc3c04e57107c9b2647155989de35"
+  }
+}

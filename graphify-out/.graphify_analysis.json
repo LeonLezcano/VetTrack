@@ -1,0 +1,244 @@
+{
+  "communities": {
+    "0": [
+      "tests_run_tests",
+      "tests_run_tests_act",
+      "tests_run_tests_appdate",
+      "tests_run_tests_assert",
+      "tests_run_tests_assertthrows",
+      "tests_run_tests_balance",
+      "tests_run_tests_cache",
+      "tests_run_tests_ccnorm",
+      "tests_run_tests_ceftsched",
+      "tests_run_tests_clean",
+      "tests_run_tests_coldfreeze",
+      "tests_run_tests_coldheat",
+      "tests_run_tests_coldok",
+      "tests_run_tests_count1",
+      "tests_run_tests_count2",
+      "tests_run_tests_dispatchcheck",
+      "tests_run_tests_firebasejsonpath",
+      "tests_run_tests_fj",
+      "tests_run_tests_flushed",
+      "tests_run_tests_formattedrfid",
+      "tests_run_tests_gitignorecontent",
+      "tests_run_tests_hascsp",
+      "tests_run_tests_hashsts",
+      "tests_run_tests_hasnosniff",
+      "tests_run_tests_hasxframe",
+      "tests_run_tests_herdsample",
+      "tests_run_tests_iatf",
+      "tests_run_tests_ivmsched",
+      "tests_run_tests_now",
+      "tests_run_tests_reprostats",
+      "tests_run_tests_retrieved",
+      "tests_run_tests_rulescontent",
+      "tests_run_tests_rulespath",
+      "tests_run_tests_sampledata",
+      "tests_run_tests_seal1",
+      "tests_run_tests_seal2",
+      "tests_run_tests_tactorecords",
+      "tests_run_tests_txcredit",
+      "tests_run_tests_txdebit",
+      "tests_run_tests_waalert",
+      "tests_run_tests_walink",
+      "tests_run_tests_wrappedselect",
+      "tests_run_tests_wrappedtable"
+    ],
+    "1": [
+      "package",
+      "package_author",
+      "package_description",
+      "package_license",
+      "package_name",
+      "package_scripts",
+      "package_scripts_compliance_audit",
+      "package_scripts_security_full",
+      "package_scripts_test",
+      "package_scripts_test_security",
+      "package_scripts_version_bump",
+      "package_type",
+      "package_version"
+    ],
+    "2": [
+      "package_keywords",
+      "ref_feedlot",
+      "ref_iatf",
+      "ref_indice_novillo_mag",
+      "ref_periodo_de_carencia",
+      "ref_sanidad_ganadera",
+      "ref_senasa",
+      "ref_tacto_rectal",
+      "ref_tambos",
+      "ref_veterinaria_rural"
+    ],
+    "3": [
+      "src_core_senasavaccinationledgerengine",
+      "src_core_senasavaccinationledgerengine_bovine_categories",
+      "src_core_senasavaccinationledgerengine_senasa_campaigns",
+      "src_core_senasavaccinationledgerengine_senasavaccinationledgerengine",
+      "src_core_senasavaccinationledgerengine_senasavaccinationledgerengine_evaluatecoldchain",
+      "src_core_senasavaccinationledgerengine_senasavaccinationledgerengine_issuesanitaryact",
+      "src_core_senasavaccinationledgerengine_senasavaccinationledgerengine_summarizevaccinationcounts",
+      "src_utils_cryptoseal",
+      "src_utils_cryptoseal_sha256",
+      "src_utils_cryptoseal_sha256pure"
+    ],
+    "4": [
+      "src_services_vettrackcache_service",
+      "src_services_vettrackcache_service_vettrackcache",
+      "src_services_vettrackcache_service_vettrackcache_constructor",
+      "src_services_vettrackcache_service_vettrackcache_enqueueoutbox",
+      "src_services_vettrackcache_service_vettrackcache_flushoutbox",
+      "src_services_vettrackcache_service_vettrackcache_get",
+      "src_services_vettrackcache_service_vettrackcache_isdemopurged",
+      "src_services_vettrackcache_service_vettrackcache_islocalstorageavailable",
+      "src_services_vettrackcache_service_vettrackcache_purgedemodata",
+      "src_services_vettrackcache_service_vettrackcache_set"
+    ],
+    "5": [
+      "src_core_chutereproductivetriageengine",
+      "src_core_chutereproductivetriageengine_chutereproductivetriageengine",
+      "src_core_chutereproductivetriageengine_chutereproductivetriageengine_calculatereproductivestats",
+      "src_core_chutereproductivetriageengine_chutereproductivetriageengine_evaluatebodycondition",
+      "src_core_chutereproductivetriageengine_chutereproductivetriageengine_scheduleiatfprotocol",
+      "src_core_chutereproductivetriageengine_iatf_protocols",
+      "src_core_chutereproductivetriageengine_reproductive_diagnoses"
+    ],
+    "6": [
+      "src_utils_formatters",
+      "src_utils_formatters_formatars",
+      "src_utils_formatters_formatcaravana",
+      "src_utils_formatters_formatdate",
+      "src_utils_formatters_formatkgnovillo",
+      "src_utils_formatters_formatlitersmilk",
+      "src_utils_formatters_formatusd"
+    ],
+    "7": [
+      "src_utils_sanitizer",
+      "src_utils_sanitizer_sanitizer",
+      "src_utils_sanitizer_sanitizer_escapehtml",
+      "src_utils_sanitizer_sanitizer_sanitizefragment",
+      "src_utils_sanitizer_sanitizer_sanitizeurl",
+      "src_utils_sanitizer_sanitizer_wrapsemanticcontext"
+    ],
+    "8": [
+      "src_core_withholdingperiodguardengine",
+      "src_core_withholdingperiodguardengine_veterinary_vademecum",
+      "src_core_withholdingperiodguardengine_withholdingperiodguardengine",
+      "src_core_withholdingperiodguardengine_withholdingperiodguardengine_calculatereleaseschedule",
+      "src_core_withholdingperiodguardengine_withholdingperiodguardengine_evaluateherddispatch"
+    ],
+    "9": [
+      "src_services_livestockcommodityledgerservice",
+      "src_services_livestockcommodityledgerservice_commodity_types",
+      "src_services_livestockcommodityledgerservice_livestockcommodityledgerservice",
+      "src_services_livestockcommodityledgerservice_livestockcommodityledgerservice_calculatebalance",
+      "src_services_livestockcommodityledgerservice_livestockcommodityledgerservice_recordtransaction"
+    ],
+    "10": [
+      "src_services_whatsappvetnotifier_service",
+      "src_services_whatsappvetnotifier_service_whatsappvetnotifier",
+      "src_services_whatsappvetnotifier_service_whatsappvetnotifier_generateactsharelink",
+      "src_services_whatsappvetnotifier_service_whatsappvetnotifier_generatewithholdingalertlink"
+    ],
+    "11": [
+      "sw",
+      "sw_assets_to_cache"
+    ]
+  },
+  "cohesion": {
+    "0": 0.046511627906976744,
+    "1": 0.15384615384615385,
+    "2": 0.2,
+    "3": 0.3111111111111111,
+    "4": 0.3111111111111111,
+    "5": 0.2857142857142857,
+    "6": 0.2857142857142857,
+    "7": 0.3333333333333333,
+    "8": 0.5,
+    "9": 0.4,
+    "10": 0.5,
+    "11": 1.0
+  },
+  "gods": [
+    {
+      "id": "package_keywords",
+      "label": "keywords",
+      "degree": 10
+    },
+    {
+      "id": "src_services_vettrackcache_service_vettrackcache",
+      "label": "VetTrackCache",
+      "degree": 10
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 6
+    },
+    {
+      "id": "src_utils_sanitizer_sanitizer",
+      "label": "Sanitizer",
+      "degree": 6
+    },
+    {
+      "id": "src_core_chutereproductivetriageengine_chutereproductivetriageengine",
+      "label": "ChuteReproductiveTriageEngine",
+      "degree": 5
+    },
+    {
+      "id": "src_core_senasavaccinationledgerengine_senasavaccinationledgerengine",
+      "label": "SenasaVaccinationLedgerEngine",
+      "degree": 5
+    },
+    {
+      "id": "src_utils_cryptoseal_sha256",
+      "label": "sha256()",
+      "degree": 5
+    },
+    {
+      "id": "src_core_withholdingperiodguardengine_withholdingperiodguardengine",
+      "label": "WithholdingPeriodGuardEngine",
+      "degree": 4
+    },
+    {
+      "id": "src_services_livestockcommodityledgerservice_livestockcommodityledgerservice",
+      "label": "LivestockCommodityLedgerService",
+      "degree": 4
+    },
+    {
+      "id": "src_services_whatsappvetnotifier_service_whatsappvetnotifier",
+      "label": "WhatsAppVetNotifier",
+      "degree": 4
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `VetTrackCache` connect `VetTrackCache` to `run_tests.js`?",
+      "why": "High betweenness centrality (0.100) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Sanitizer` connect `Sanitizer` to `run_tests.js`?",
+      "why": "High betweenness centrality (0.052) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `ChuteReproductiveTriageEngine` connect `ChuteReproductiveTriageEngine` to `run_tests.js`?",
+      "why": "High betweenness centrality (0.039) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `name`, `version`, `description` to the rest of the system?",
+      "why": "61 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `run_tests.js` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.046511627906976744 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
