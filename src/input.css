@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-field: #0d120e;
+    --bg-chrome: #0f1510;
+    --bg-card: #161c17;
+    --border-hairline: #263329;
+    --text-primary: #f4f5f4;
+    --accent-bio: #10b981;
+    color-scheme: dark;
+  }
+
+  html {
+    background-color: var(--bg-field);
+    color: var(--text-primary);
+  }
+
+  body {
+    background-color: var(--bg-field);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    -webkit-tap-highlight-color: transparent;
+    caret-color: var(--accent-bio);
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  ::selection {
+    background-color: #10b981;
+    color: #05130c;
+  }
+
+  :focus-visible {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  .tabular-data {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .status-dot {
+    background-color: #a1a1aa;
+  }
+
+  .status-dot[data-state='active'] {
+    background-color: #34d399;
+  }
+
+  .status-dot[data-state='warn'] {
+    background-color: #fbbf24;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  main {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}

@@ -53,7 +53,7 @@ export class WhatsAppVetNotifier {
   static generateActShareLink(params) {
     const cleanPhone = String(params.phone || '').replace(/\D/g, '');
     const text =
-      `*VetTrack — Acta Sanitaria SENASA* 📜\n\n` +
+      `*VetTrack - Acta Sanitaria SENASA*\n\n` +
       `📋 Acta N°: *${params.actNumber}*\n` +
       `🏛️ RENSPA: *${params.renspa}*\n` +
       `💉 Campaña: *${params.campaign}*\n` +

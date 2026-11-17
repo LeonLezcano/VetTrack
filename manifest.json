@@ -1,0 +1,20 @@
+{
+  "name": "VetTrack - Sanidad Ganadera y Actas SENASA",
+  "short_name": "VetTrack",
+  "description": "Plataforma offline-first de sanidad ganadera, períodos de carencia, manga IATF, actas SENASA y cuenta corriente en commodities.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0d120e",
+  "theme_color": "#047857",
+  "lang": "es-AR",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

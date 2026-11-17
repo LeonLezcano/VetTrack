@@ -245,6 +245,37 @@ assert(rulesContent.includes('senasa_acts') && rulesContent.includes('allow upda
 const gitIgnoreContent = fs.readFileSync(path.resolve('.gitignore'), 'utf8');
 assert(gitIgnoreContent.includes('.env'), 'Capa 4.11: .gitignore bloquea .env');
 
+// 4.4 Integridad PWA, Offline-First y CSP estricta sin CDN ni unsafe-inline
+const ignoreList = fj?.hosting?.ignore || [];
+assert(!ignoreList.includes('src/**'), 'Capa 4.12: firebase.json no ignora src/** necesario en producción');
+const swHeader = (fj?.hosting?.headers || []).find(h => h.source === '/sw.js');
+assert(Boolean(swHeader), 'Capa 4.13: firebase.json configura cabecera anti-stale para /sw.js');
+const cspHeader = headers.find(h => h.key.toLowerCase() === 'content-security-policy');
+assert(
+  cspHeader && !cspHeader.value.includes('unsafe-inline') && !cspHeader.value.includes('unsafe-eval'),
+  'Capa 4.14: CSP bloquea unsafe-inline y unsafe-eval'
+);
+
+const indexHtml = fs.readFileSync(path.resolve('index.html'), 'utf8');
+assert(
+  !indexHtml.includes('cdn.tailwindcss.com') &&
+    indexHtml.includes('./styles.css') &&
+    indexHtml.includes('./manifest.json') &&
+    indexHtml.includes('./src/sw-register.js'),
+  'Capa 4.15: index.html usa CSS compilado local, manifest.json y registro SW offline-first'
+);
+assert(!indexHtml.includes('user-scalable=no') && !indexHtml.includes('—'), 'Capa 4.16: index.html permite zoom y omite em dashes');
+
+const versionMeta = JSON.parse(fs.readFileSync(path.resolve('version.json'), 'utf8'));
+const swContent = fs.readFileSync(path.resolve('sw.js'), 'utf8');
+assert(swContent.includes(versionMeta.version), 'Capa 4.17: sw.js CACHE_NAME sincronizado con version.json');
+assert(
+  fs.existsSync(path.resolve('DESIGN.md')) &&
+    fs.existsSync(path.resolve('manifest.json')) &&
+    fs.existsSync(path.resolve('styles.css')),
+  'Capa 4.18: DESIGN.md, manifest.json y styles.css presentes en raíz'
+);
+
 // -------------------------------------------------------------
 // CAPA 5: E2E (Flujo de Campo Completo)
 // -------------------------------------------------------------

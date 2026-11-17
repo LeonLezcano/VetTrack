@@ -1,14 +1,19 @@
 // @ts-check
 /**
  * VetTrack PWA Service Worker (AiAppFactory Offline Continuity Standard)
- * Cache-First para activos estáticos y Network-First con fallback offline.
+ * Network-First para navegación HTML y version.json; Cache-First con refresco en background para assets.
  */
 
-const CACHE_NAME = 'vettrack-v1.0.00';
+const CACHE_NAME = 'vettrack-cache-v1.0.02';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './styles.css',
+  './manifest.json',
+  './icon.svg',
   './version.json',
+  './src/app.js',
+  './src/sw-register.js',
   './src/utils/sanitizer.js',
   './src/utils/cryptoSeal.js',
   './src/utils/formatters.js',
@@ -30,27 +35,70 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   // @ts-ignore
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys.map((key) => {
+            if (key !== CACHE_NAME) {
+              return caches.delete(key);
+            }
+            return Promise.resolve(false);
+          })
+        )
       )
-    ).then(() => self.clients.claim())
+      .then(() => self.clients.claim())
   );
 });
 
 self.addEventListener('fetch', (event) => {
   // @ts-ignore
-  if (event.request.method !== 'GET') return;
+  const request = event.request;
+  if (request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+  // Bypass inmediato para APIs externas y Cloud Firestore
+  if (url.origin !== self.location.origin || url.pathname.includes('firestore.googleapis.com')) {
+    return;
+  }
+
+  const isNavigationOrVersion =
+    request.mode === 'navigate' ||
+    url.pathname.endsWith('/index.html') ||
+    url.pathname.endsWith('/version.json') ||
+    url.pathname.endsWith('/');
+
+  if (isNavigationOrVersion) {
+    // @ts-ignore
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request).then((cached) => cached || caches.match('./index.html')))
+    );
+    return;
+  }
+
+  // Cache-First con refresco en background para assets estáticos locales
   // @ts-ignore
   event.respondWith(
-    // @ts-ignore
-    caches.match(event.request).then((cached) => {
-      // @ts-ignore
-      return cached || fetch(event.request).catch(() => caches.match('./index.html'));
+    caches.match(request).then((cached) => {
+      const networkFetch = fetch(request)
+        .then((response) => {
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => cached);
+
+      return cached || networkFetch;
     })
   );
 });

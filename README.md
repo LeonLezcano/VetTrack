@@ -1,4 +1,4 @@
-# 🐄 VetTrack v1.0.00
+# VetTrack v1.0.02
 ### Plataforma de Sanidad Ganadera, Carencia Farmacológica, Manga Offline & Actas SENASA
 
 > **AiAppFactory Standard:** Rural Offline-First, Chemical Withholding Guard & Commodity-Indexed Ledger  
@@ -34,7 +34,7 @@ src/
 
 ---
 
-## 🧪 3. Batería de Pruebas Multi-Capa (65 Tests Aprobados)
+## 🧪 3. Batería de Pruebas Multi-Capa (72 Tests Aprobados)
 
 ```bash
 # Ejecutar suite de pruebas completa:
@@ -45,7 +45,7 @@ node tests/run_tests.js
 - **Capa 1 (Unitarias & Fuzzing):** 26 tests (Vademécum, carencias, tacto, CC 1-5, cadena de frío, transacciones).
 - **Capa 2 (Integración & Offline):** 8 tests (Cache local, Outbox FIFO, anti-siembra demo, sellos SHA-256).
 - **Capa 3 (Componentes & Formatters):** 11 tests (Caravanas 15 dígitos ISO, formato ARS/USD, sanitización de tablas/selects).
-- **Capa 4 (Seguridad & CSP):** 11 tests (firebase.json headers, firestore.rules zero-trust, inmutabilidad de actas).
+- **Capa 4 (Seguridad & CSP):** 18 tests (firebase.json headers, /sw.js anti-stale, CSP sin unsafe-inline, firestore.rules zero-trust, assets offline-first).
 - **Capa 5 (E2E & Campo):** 9 tests (Emisión de acta, bloqueo por quiebre de frío, enlaces de WhatsApp).
 
 ---
@@ -62,7 +62,8 @@ pnpm run compliance:audit
 
 ---
 
-## 📱 5. Operatividad Callejera y Modo Manga
-- Diseñado prioritariamente para smartphones (`393x852`).
-- Soporte para **Screen Wake Lock API** con auto-reenganche en `visibilitychange` para operar en parabrisas de camioneta o soporte de manga.
-- Operatividad 100% Offline-First sin bloqueos ante pérdida de señal en corrales o mangas.
+## 📱 5. Operatividad Callejera, Accesibilidad y Modo Manga (v1.0.02)
+- Diseñado prioritariamente para smartphones (`393x852`), permitiendo zoom (`width=device-width, initial-scale=1.0`), grillas responsivas y áreas táctiles mínimas de `48px` (`.touch-target`).
+- Soporte para **Screen Wake Lock API** con feedback de estado no bloqueante (`role="status"`), `aria-pressed` y auto-reenganche en `visibilitychange`.
+- **100% Offline-First:** Tailwind CSS precompilado localmente (`./styles.css`), tipografía de sistema sin CDNs externos, `manifest.json`, `print.css` para impresión en papel y Service Worker (`./sw.js`) registrado desde `./src/sw-register.js` con cabecera anti-stale `/sw.js` en `firebase.json`.
+- **Accesibilidad & Transparencia:** Navegación por pestañas `tablist`/`tab`/`tabpanel` con soporte de teclado, foco visible de alto contraste (`:focus-visible`), errores en línea (`role="alert"`), soporte `@media (prefers-reduced-motion: reduce)`, sistema de diseño documentado en `DESIGN.md` y purga explícita de datos `[DEMO]` (`vettrack_demo_purged`).
